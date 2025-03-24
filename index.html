@@ -10,62 +10,37 @@
   <iframe allowfullscreen='true' frameborder='0' height='500px' scrolling='no' src='https://webplayer-live.pages.dev/?url=https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1742733220~acl=/*~hmac=8a915461ca7185c35a320d7708e6f1c1eb5494f24a7d4bdd7ed85fd41353d0f6' width='100%'></iframe>
   <style>
 body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
+      font-family: Arial, sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background: #f7f9fc;
+      margin: 0;
+      background-color: #f0f2f5;
     }
-
-    .card {
-      background: #ffffff;
-      width: 350px;
-      border-radius: 15px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    .button-container {
       text-align: center;
-      padding: 30px;
     }
-
-    .card h2 {
-      font-size: 24px;
-      margin-bottom: 20px;
-      color: #333;
-    }
-
-    .card p {
-      font-size: 16px;
-      margin-bottom: 30px;
-      color: #555;
-    }
-
     .button {
-      display: block;
-      width: 100%;
+      display: inline-block;
       padding: 12px 20px;
-      margin: 10px 0;
-      font-size: 18px;
-      text-align: center;
+      margin: 10px;
+      font-size: 16px;
+      font-weight: bold;
       text-decoration: none;
       color: white;
-      border-radius: 25px;
-      font-weight: bold;
-      transition: all 0.3s ease;
+      border-radius: 8px;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
-
-    .button.whatsapp {
-      background: #25D366;
-    }
-
-    .button.telegram {
-      background: #0088cc;
-    }
-
     .button:hover {
       transform: scale(1.05);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    .whatsapp {
+      background-color: #25D366;
+    }
+    .telegram {
+      background-color: #0088cc;
     }
     body {
       margin: 0;
@@ -210,11 +185,9 @@ body {
       <button class="back-btn" id="backPage"></button>
     </div>
   </div>
- <div class="card">
-    <h2>Join Our Community</h2>
-    <p>Stay connected with us by joining our WhatsApp and Telegram groups for updates and discussions!</p>
+<div class="button-container">
     <a href="https://whatsapp.com/channel/0029VaXNXVCJf05TommxYk42" class="button whatsapp" target="_blank">Join WhatsApp Group</a>
-    <a href="https://t.me/+cILgZFPn5R0wMTE1" class="button telegram" target="_blank">Join Telegram Group</a>
+    <a href="https://whatsapp.com/channel/0029VaXNXVCJf05TommxYk42" class="button telegram" target="_blank">MORE LIVE</a>
   </div>
   <script>
     // Show the popup when the page loads
