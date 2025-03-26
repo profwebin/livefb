@@ -4,52 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LIVE A4K</title>
-</head>
-<body>
- <b> <h3>🔴 LIVE NOW</h3>
-  <iframe allowfullscreen='true' frameborder='0' height='250px' scrolling='no' src='https://amalpro.github.io/watchasports/st.html?dtv=https://pull.niues.live/live/stream-485739_lsd.m3u8?auth_key=1742912980-0-0-8f71704de422cab8c18fb05bf1372558?txSecret=bd18373a7d57867a3dce23e5edb61c05' width='100%'></iframe>
   <style>
-body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      background-color: #f0f2f5;
-    }
-    .button-container {
-      text-align: center;
-    }
-    .button {
-      display: inline-block;
-      padding: 12px 20px;
-      margin: 10px;
-      font-size: 16px;
-      font-weight: bold;
-      text-decoration: none;
-      color: white;
-      border-radius: 8px;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-    .whatsapp {
-      background-color: #25D366;
-    }
-    .telegram {
-      background-color: #0088cc;
-    }
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #f5f5f5;
-      overflow: hidden; /* Prevent scrolling when popup is open */
-    }
-
-    /* Overlay */
+  /* Overlay */
     .popup-overlay {
       position: fixed;
       top: 0;
@@ -173,9 +129,240 @@ body {
       content: '\2190'; /* Unicode for left arrow */
       font-size: 1.5rem;
     }
-  </style>
+    /* Reset styles */
+    body, ul, li, a, h1 {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  <!-- Popup Overlay -->
+    /* General body styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    /* Header styles */
+    .header {
+      background-color: #1f2937;
+      color: white;
+      padding: 15px 20px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .logo a {
+      color: #ff4949;
+      font-size: 28px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: #f4d03f;
+    }
+
+    .navbar {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .navbar a:hover {
+      background-color: #374151;
+    }
+
+    @media screen and (max-width: 768px) {
+      .navbar {
+        display: none;
+        flex-direction: column;
+        background-color: #1f2937;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        padding: 15px;
+      }
+
+      .navbar.active {
+        display: flex;
+      }
+    }
+
+    main {
+      margin-top: 100px;
+      padding: 20px;
+    }
+
+    .live-section {
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .live-section h4 {
+      font-size: 22px;
+      color: #ff4949;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    /* Watermarked iframe */
+    .iframe-container {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    iframe {
+      border-radius: 8px;
+      border: 2px solid #ddd;
+      width: 100%;
+      height: 250px;
+    }
+
+    .watermark {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: rgba(255, 73, 73, 0.9);
+      color: white;
+      padding: 5px 15px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: bold;
+      text-transform: uppercase;
+      box-shadow: 0 4px 8px rgba(255, 73, 73, 0.3);
+      pointer-events: none;
+    }
+
+    /* Join Buttons */
+    .join-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .join-buttons a {
+      padding: 10px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      font-size: 14px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .join-buttons a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .whatsapp-btn {
+      background-color: #25D366;
+    }
+
+    .telegram-btn {
+      background-color: #0088cc;
+    }
+
+    .footer {
+      background-color: #1f2937;
+      color: white;
+      padding: 20px 15px;
+      text-align: center;
+      margin-top: 40px;
+      box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .footer p {
+      font-size: 14px;
+      color: #9ca3af;
+    }
+
+    .footer a {
+      color: #61dafb;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+   <header class="header">
+    <div class="container">
+      <div class="logo">
+        <a href="#">A4K<span>Live</span></a>
+      </div>
+      <nav class="navbar">
+        <a href="#live1">Live 1</a>
+        <a href="#live2">Live 2</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="live-section" id="live1">
+      <h4>🔴 LIVE 1 | ENGLISH (IOS)</h4>
+      <div class="iframe-container">
+        <iframe allowfullscreen="true" frameborder="0" scrolling="no" src="https://001.fclplayer.online/live/csstream1/playlist.m3u8?id=1001&pk=b8b9ed43e31979704744088aa88a2f3120f22aa9dd4d9865978379b08256e56b"></iframe>
+        <div class="watermark">LIVE</div>
+      </div>
+      <div class="join-buttons">
+       <a href="https://whatsapp.com/channel/0029VaXNXVCJf05TommxYk42" target="_blank" class="whatsapp-btn">Join WhatsApp Channel</a>
+        <a href="https://whatsapp.com/channel/0029VaXNXVCJf05TommxYk42" target="_blank" class="telegram-btn">More live</a>
+      </div>
+    </div>
+    <div class="live-section" id="live2">
+      <h4>🔴 LIVE 2 | HINDI</h4>
+      <div class="iframe-container">
+        <iframe allowfullscreen="true" frameborder="0" scrolling="no" src="https://iframv2.embedxt.site/iframe/frame.php"></iframe>
+        <div class="watermark">LIVE</div>
+      </div>
+      <div class="join-buttons">
+        <a href="https://whatsapp.com/channel/0029VaXNXVCJf05TommxYk42" target="_blank" class="whatsapp-btn">Join WhatsApp Channel</a>
+        <a href="https://whatsapp.com/channel/0029VaXNXVCJf05TommxYk42" target="_blank" class="telegram-btn">More live</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 A4K Live. All Rights Reserved. | <a href="#contact">Contact Us</a></p>
+  </footer>
+   <!-- Popup Overlay -->
   <div class="popup-overlay" id="telegramPopup">
     <div class="popup-box">
       <button class="close-btn" id="closePopup">&times;</button>
@@ -184,10 +371,6 @@ body {
       <a href="https://whatsapp.com/channel/0029VaXNXVCJf05TommxYk42" class="button whatsapp" target="_blank">Join Now</a>
       <button class="back-btn" id="backPage"></button>
     </div>
-  </div>
-<div class="button-container">
-    <a href="https://whatsapp.com/channel/0029VaXNXVCJf05TommxYk42" class="button whatsapp" target="_blank">Join WhatsApp Group</a>
-    <a href="https://whatsapp.com/channel/0029VaXNXVCJf05TommxYk42" class="button telegram" target="_blank">MORE LIVE</a>
   </div>
   <script>
     // Show the popup when the page loads
@@ -207,5 +390,6 @@ body {
       window.history.back(); // Redirects to the previous page
     });
   </script>
+
 </body>
 </html>
