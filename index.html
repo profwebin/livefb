@@ -1,395 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LIVE A4K</title>
-  <style>
-  /* Overlay */
-    .popup-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-      visibility: hidden;
-      opacity: 0;
-      transition: opacity 0.4s ease, visibility 0.4s ease;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Match Section</title>
+    <style>
+        /* Base styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
 
-    .popup-overlay.active {
-      visibility: visible;
-      opacity: 1;
-    }
+        .match-container {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
 
-    /* Popup Box */
-    .popup-box {
-      background: #ffffff;
-      border-radius: 16px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-      width: 90%;
-      max-width: 450px;
-      text-align: center;
-      padding: 30px 20px;
-      transform: scale(0.9);
-      animation: popup-appear 0.4s ease forwards;
-      position: relative;
-    }
+        .match-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+            overflow: hidden;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
 
-    @keyframes popup-appear {
-      from {
-        transform: scale(0.9);
-        opacity: 0;
-      }
-      to {
-        transform: scale(1);
-        opacity: 1;
-      }
-    }
+        .match-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 0;
+        }
 
-    .popup-box h2 {
-      color: #333;
-      font-size: 1.8rem;
-      margin-bottom: 10px;
-      font-weight: bold;
-    }
+        .team {
+            text-align: center;
+        }
 
-    .popup-box p {
-      font-size: 1rem;
-      color: #666;
-      margin-bottom: 20px;
-      line-height: 1.5;
-    }
+        .team img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-bottom: 5px;
+        }
 
-    .popup-box a {
-      display: inline-block;
-      padding: 12px 24px;
-      background-color: #0088cc;
-      color: #ffffff;
-      text-decoration: none;
-      border-radius: 12px;
-      font-size: 1rem;
-      font-weight: 600;
-      transition: background-color 0.3s ease;
-      box-shadow: 0 4px 8px rgba(0, 136, 204, 0.3);
-    }
+        .team p {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
 
-    .popup-box a:hover {
-      background-color: #006699;
-    }
+        .match-info {
+            text-align: center;
+        }
 
-    /* Close Button */
-    .close-btn {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: transparent;
-      border: none;
-      font-size: 1.5rem;
-      color: #999;
-      cursor: pointer;
-      transition: color 0.3s ease;
-    }
+        .match-info .time {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
 
-    .close-btn:hover {
-      color: #333;
-    }
+        .match-info .status {
+            background-color: #d9534f;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+        }
 
-    /* Back Button */
-    .back-btn {
-      position: absolute;
-      bottom: -20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #555;
-      color: #ffffff;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 1.5rem;
-      cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      transition: background-color 0.3s ease, transform 0.2s ease;
-    }
+        .match-details {
+            margin-top: 15px;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
 
-    .back-btn:hover {
-      background-color: #333;
-      transform: scale(1.1);
-    }
+        .match-details p {
+            margin: 5px 0;
+        }
 
-    .back-btn::before {
-      content: '\2190'; /* Unicode for left arrow */
-      font-size: 1.5rem;
-    }
-    /* Reset styles */
-    body, ul, li, a, h1 {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .match-top {
+                flex-direction: column;
+            }
 
-    /* General body styles */
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
-    }
+            .team img {
+                width: 50px;
+                height: 50px;
+            }
 
-    /* Header styles */
-    .header {
-      background-color: #1f2937;
-      color: white;
-      padding: 15px 20px;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+            .team p {
+                font-size: 14px;
+            }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-    }
+            .match-info .time {
+                font-size: 16px;
+            }
 
-    .logo a {
-      color: #ff4949;
-      font-size: 28px;
-      font-weight: bold;
-      text-decoration: none;
-    }
+            .match-info .status {
+                font-size: 12px;
+            }
+        }
 
-    .logo span {
-      color: #f4d03f;
-    }
+        @media (max-width: 480px) {
+            .team img {
+                width: 40px;
+                height: 40px;
+            }
 
-    .navbar {
-      display: flex;
-      list-style: none;
-      gap: 20px;
-    }
+            .team p {
+                font-size: 12px;
+            }
 
-    .navbar a {
-      color: white;
-      text-decoration: none;
-      font-size: 16px;
-      padding: 8px 15px;
-      border-radius: 5px;
-      transition: background-color 0.3s;
-    }
+            .match-info .time {
+                font-size: 14px;
+            }
 
-    .navbar a:hover {
-      background-color: #374151;
-    }
+            .match-info .status {
+                font-size: 10px;
+                padding: 4px 8px;
+            }
 
-    @media screen and (max-width: 768px) {
-      .navbar {
-        display: none;
-        flex-direction: column;
-        background-color: #1f2937;
-        position: absolute;
-        top: 60px;
-        right: 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-        padding: 15px;
-      }
-
-      .navbar.active {
-        display: flex;
-      }
-    }
-
-    main {
-      margin-top: 100px;
-      padding: 20px;
-    }
-
-    .live-section {
-      text-align: center;
-      margin-bottom: 40px;
-      position: relative;
-    }
-
-    .live-section h4 {
-      font-size: 22px;
-      color: #ff4949;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    /* Watermarked iframe */
-    .iframe-container {
-      position: relative;
-      display: inline-block;
-      width: 100%;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    iframe {
-      border-radius: 8px;
-      border: 2px solid #ddd;
-      width: 100%;
-      height: 250px;
-    }
-
-    .watermark {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background-color: rgba(255, 73, 73, 0.9);
-      color: white;
-      padding: 5px 15px;
-      border-radius: 50px;
-      font-size: 14px;
-      font-weight: bold;
-      text-transform: uppercase;
-      box-shadow: 0 4px 8px rgba(255, 73, 73, 0.3);
-      pointer-events: none;
-    }
-
-    /* Join Buttons */
-    .join-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 15px;
-    }
-
-    .join-buttons a {
-      padding: 10px 20px;
-      border-radius: 50px;
-      text-decoration: none;
-      color: white;
-      font-weight: bold;
-      font-size: 14px;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-
-    .join-buttons a:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    .whatsapp-btn {
-      background-color: #25D366;
-    }
-
-    .telegram-btn {
-      background-color: #0088cc;
-    }
-
-    .footer {
-      background-color: #1f2937;
-      color: white;
-      padding: 20px 15px;
-      text-align: center;
-      margin-top: 40px;
-      box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.15);
-    }
-
-    .footer p {
-      font-size: 14px;
-      color: #9ca3af;
-    }
-
-    .footer a {
-      color: #61dafb;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
+            .match-details p {
+                font-size: 12px;
+            }
+        }
+    </style>
 </head>
 <body>
-   <header class="header">
-    <div class="container">
-      <div class="logo">
-        <a href="#">A4K<span>Live</span></a>
-      </div>
-      <nav class="navbar">
-        <a href="#live1">Live 1</a>
-        <a href="#live2">Live 2</a>
-        <a href="#contact">Contact</a>
-      </nav>
+    <div class="match-container">
+        <div class="match-card">
+            <div class="match-top">
+                <div class="team">
+                    <img src="https://flagcdn.com/w320/in.png" alt="India Flag">
+                    <p>India</p>
+                </div>
+                <div class="match-info">
+                    <p class="time">7:00 PM</p>
+                    <div class="status">FULLTIME</div>
+                </div>
+                <div class="team">
+                    <img src="https://flagcdn.com/w320/bd.png" alt="Bangladesh Flag">
+                    <p>Bangladesh</p>
+                </div>
+            </div>
+            <div class="match-details">
+                <p>AFC Asian Cup Qualification</p>
+                <p>A4k LIVE</p>
+                <p>Round 1</p>
+            </div>
+        </div>
     </div>
-  </header>
-
-  <main>
-    <div class="live-section" id="live1">
-      <h4>🔴 LIVE 1 | ENGLISH (IOS)</h4>
-      <div class="iframe-container">
-        <iframe allowfullscreen="true" frameborder="0" scrolling="no" src="https://001.fclplayer.online/live/csstream1/playlist.m3u8?id=1001&pk=b8b9ed43e31979704744088aa88a2f3120f22aa9dd4d9865978379b08256e56b"></iframe>
-        <div class="watermark">LIVE</div>
-      </div>
-      <div class="join-buttons">
-       <a href="https://whatsapp.com/channel/0029VaXNXVCJf05TommxYk42" target="_blank" class="whatsapp-btn">Join WhatsApp Channel</a>
-        <a href="https://whatsapp.com/channel/0029VaXNXVCJf05TommxYk42" target="_blank" class="telegram-btn">More live</a>
-      </div>
-    </div>
-    <div class="live-section" id="live2">
-      <h4>🔴 LIVE 2 | HINDI</h4>
-      <div class="iframe-container">
-        <iframe allowfullscreen="true" frameborder="0" scrolling="no" src="https://iframv2.embedxt.site/iframe/frame.php"></iframe>
-        <div class="watermark">LIVE</div>
-      </div>
-      <div class="join-buttons">
-        <a href="https://whatsapp.com/channel/0029VaXNXVCJf05TommxYk42" target="_blank" class="whatsapp-btn">Join WhatsApp Channel</a>
-        <a href="https://whatsapp.com/channel/0029VaXNXVCJf05TommxYk42" target="_blank" class="telegram-btn">More live</a>
-      </div>
-    </div>
-  </main>
-
-  <footer class="footer">
-    <p>© 2025 A4K Live. All Rights Reserved. | <a href="#contact">Contact Us</a></p>
-  </footer>
-   <!-- Popup Overlay -->
-  <div class="popup-overlay" id="telegramPopup">
-    <div class="popup-box">
-      <button class="close-btn" id="closePopup">&times;</button>
-      <h2>Join Our Whatsapp Channel</h2>
-      <p>Stay updated with the latest news, events, and updates directly from our Whatsapp channel. Don't miss out!</p>
-      <a href="https://whatsapp.com/channel/0029VaXNXVCJf05TommxYk42" class="button whatsapp" target="_blank">Join Now</a>
-      <button class="back-btn" id="backPage"></button>
-    </div>
-  </div>
-  <script>
-    // Show the popup when the page loads
-    window.onload = function () {
-      const popup = document.getElementById('telegramPopup');
-      popup.classList.add('active');
-    };
-
-    // Close popup functionality
-    document.getElementById('closePopup').addEventListener('click', function () {
-      const popup = document.getElementById('telegramPopup');
-      popup.classList.remove('active');
-    });
-
-    // Back page functionality
-    document.getElementById('backPage').addEventListener('click', function () {
-      window.history.back(); // Redirects to the previous page
-    });
-  </script>
-
 </body>
 </html>
