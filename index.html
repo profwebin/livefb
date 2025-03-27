@@ -18,20 +18,21 @@
 
         .refresh-button {
             margin: 20px 0;
-            padding: 10px 20px;
-            background-color: #1976d2;
+            padding: 12px 25px;
+            background: linear-gradient(45deg, #42a5f5, #1e88e5);
             color: #ffffff;
             border: none;
-            border-radius: 8px;
+            border-radius: 50px;
             cursor: pointer;
-            font-size: 16px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.2s ease, box-shadow 0.2s ease;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(33, 150, 243, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .refresh-button:hover {
-            background-color: #1565c0;
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(33, 150, 243, 0.8);
         }
 
         .link-container {
@@ -83,7 +84,7 @@
     </style>
 </head>
 <body>
-    <button class="refresh-button" onclick="location.reload()">Refresh</button>
+    <button class="refresh-button" onclick="location.reload()">🔄 RElode Page</button>
     <div class="link-container">
         <a href="#" class="link">
             <div class="main-text">▶ LINK 1 | Live Now | HD</div>
