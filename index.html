@@ -3,88 +3,420 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Match Section Design</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Responsive Match Section</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
 
         .match-container {
-            display: flex;
-            justify-content: center;
             padding: 20px;
+            max-width: 100%;
         }
 
         .match-card {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 600px;
-            text-align: center;
-            overflow: hidden;
+            background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
             padding: 20px;
-            border: 1px solid #ddd;
+            max-width: 600px;
+            margin: auto;
+            text-align: center;
+            border: 1px solid #e0e0e0;
         }
 
         .match-top {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            padding: 10px 0;
+            align-items: center;
         }
 
         .team {
             text-align: center;
+            flex: 1;
         }
 
         .team img {
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            border: 2px solid #ddd;
         }
 
         .team p {
-            font-size: 16px;
+            font-size: 18px;
             font-weight: bold;
             color: #333;
         }
 
         .match-info {
             text-align: center;
+            flex: 2;
         }
 
         .match-info .time {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: bold;
             margin-bottom: 5px;
-            color: #333;
+            color: #444;
         }
 
         .match-info .status {
             background-color: #d9534f;
             color: white;
-            font-size: 14px;
+            font-size: 16px;
             font-weight: bold;
-            padding: 5px 10px;
-            border-radius: 5px;
+            padding: 5px 15px;
+            border-radius: 12px;
             display: inline-block;
         }
 
         .match-details {
             margin-top: 15px;
+            padding-top: 15px;
             border-top: 1px solid #ddd;
-            padding-top: 10px;
-            font-size: 14px;
-            color: #555;
+            color: #666;
+            font-size: 16px;
+            display: flex;
+            justify-content: space-between;
         }
 
         .match-details p {
-            margin: 5px 0;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .match-card {
+                padding: 15px;
+            }
+
+            .team img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .team p {
+                font-size: 16px;
+            }
+
+            .match-info .time {
+                font-size: 18px;
+            }
+
+            .match-info .status {
+                font-size: 14px;
+                padding: 4px 10px;
+            }
+
+            .match-details {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="match-container">
+        <div class="match-card">
+            <div class="match-top">
+                <div class="team">
+                    <img src="https://flagcdn.com/w320/in.png" alt="India Flag">
+                    <p>India</p>
+                </div>
+                <div class="match-info">
+                    <p class="time">7:00 PM</p>
+                    <div class="status">FULLTIME</div>
+                </div>
+                <div class="team">
+                    <img src="https://flagcdn.com/w320/bd.png" alt="Bangladesh Flag">
+                    <p>Bangladesh</p>
+                </div>
+            </div>
+            <div class="match-details">
+                <p>AFC Asian Cup Qualification</p>
+                <p>B4X SPORTS</p>
+                <p>Round 1</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Match Section</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .match-container {
+            padding: 20px;
+            max-width: 100%;
+        }
+
+        .match-card {
+            background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+        }
+
+        .match-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .team {
+            text-align: center;
+            flex: 1;
+        }
+
+        .team img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin-bottom: 8px;
+            border: 2px solid #ddd;
+        }
+
+        .team p {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .match-info {
+            text-align: center;
+            flex: 2;
+        }
+
+        .match-info .time {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #444;
+        }
+
+        .match-info .status {
+            background-color: #d9534f;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 5px 15px;
+            border-radius: 12px;
+            display: inline-block;
+        }
+
+        .match-details {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #ddd;
+            color: #666;
+            font-size: 16px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .match-details p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .match-card {
+                padding: 15px;
+            }
+
+            .team img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .team p {
+                font-size: 16px;
+            }
+
+            .match-info .time {
+                font-size: 18px;
+            }
+
+            .match-info .status {
+                font-size: 14px;
+                padding: 4px 10px;
+            }
+
+            .match-details {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="match-container">
+        <div class="match-card">
+            <div class="match-top">
+                <div class="team">
+                    <img src="https://flagcdn.com/w320/in.png" alt="India Flag">
+                    <p>India</p>
+                </div>
+                <div class="match-info">
+                    <p class="time">7:00 PM</p>
+                    <div class="status">FULLTIME</div>
+                </div>
+                <div class="team">
+                    <img src="https://flagcdn.com/w320/bd.png" alt="Bangladesh Flag">
+                    <p>Bangladesh</p>
+                </div>
+            </div>
+            <div class="match-details">
+                <p>AFC Asian Cup Qualification</p>
+                <p>B4X SPORTS</p>
+                <p>Round 1</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Match Section</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .match-container {
+            padding: 20px;
+            max-width: 100%;
+        }
+
+        .match-card {
+            background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+        }
+
+        .match-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .team {
+            text-align: center;
+            flex: 1;
+        }
+
+        .team img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin-bottom: 8px;
+            border: 2px solid #ddd;
+        }
+
+        .team p {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .match-info {
+            text-align: center;
+            flex: 2;
+        }
+
+        .match-info .time {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #444;
+        }
+
+        .match-info .status {
+            background-color: #d9534f;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 5px 15px;
+            border-radius: 12px;
+            display: inline-block;
+        }
+
+        .match-details {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #ddd;
+            color: #666;
+            font-size: 16px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .match-details p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .match-card {
+                padding: 15px;
+            }
+
+            .team img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .team p {
+                font-size: 16px;
+            }
+
+            .match-info .time {
+                font-size: 18px;
+            }
+
+            .match-info .status {
+                font-size: 14px;
+                padding: 4px 10px;
+            }
+
+            .match-details {
+                font-size: 14px;
+            }
         }
     </style>
 </head>
